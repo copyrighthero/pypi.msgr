@@ -60,6 +60,14 @@ class MessageQueue(object):
       # dispatch a message
       self.put(message, *args, **kwargs)
 
+  def __getattr__(self, key):
+    """
+    Expose queue's attributes
+    :param key: str, the attribute name
+    :return: mixed, the queue properties
+    """
+    return self._queue.__getattribute__(key)
+
   def put(self, message, *args, **kwargs):
     """
     Put one message to queue with blocking
@@ -148,6 +156,14 @@ class MessageBroker(object):
     else:
       # dispatch a message
       self.dispatch(message, *args, **kwargs)
+
+  def __getattr__(self, key):
+    """
+    Expose job queue's attributes.
+    :param key: str, the attribute name
+    :return: mixed, the attributes.
+    """
+    return self._job.__getattribute__(key)
 
   def acquire(
     self,
