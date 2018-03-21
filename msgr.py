@@ -1,7 +1,11 @@
 # Author: Hansheng Zhao <copyrighthero@gmail.com> (https://www.zhs.me)
 
 from multiprocessing import Queue
-from queue import Empty
+from sys import version_info
+if version_info[0] == 2:
+  from Queue import Empty
+else:
+  from queue import Empty
 
 
 # import directive
