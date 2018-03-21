@@ -8,7 +8,7 @@ About the Msgr Library
 ======================
 
 How to Use Msgr Library
-======================
+=======================
 
 .. code-block:: python
 
